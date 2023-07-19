@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="CSS/stylesheet.css">
+</head>
+
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="tittle">JANIYE</h2>
+            <h3 id="artist">Vishal/Rashmeet</h3>
+            <div class="image_container">
+                <img src="IMAGES/janiye.jpg" alt="">
+            </div>
+            <audio src="music/Janiye_64(PagalWorld.com.se).mp3"></audio>
+            <div class="music_controls">
+                <i class="fa-solid fa-backward" id="prev" title="previous"></i>
+                <i class="fa-solid fa-play main_button" id="play" title="play"></i>
+                <i class="fa-solid fa-forward" id="prev" title="next"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.querySelector("audio");
+        const play = document.getElementById("play");
+        const img = document.querySelector("img");
+        const artist = document.querySelector("artist");
+        const tittle = document.querySelector("tittle");
+        const prev = document.querySelector("prev");
+        const next = document.querySelector("next");
+        const songs = [{
+            name: "janiye",
+            tittle: "JANIYE",
+            artist: "Vishal/Rashmeet"
+        }, {
+            name: "janiye",
+            tittle: "JANIYE",
+            artist: "Vishal/Rashmeet"
+        }, {
+            name: "janiye",
+            tittle: "JANIYE",
+            artist: "Vishal/Rashmeet"
+        }, ]
+
+        let isplaying = false;
+        const playMusic = () => {
+            isplaying = true;
+            music.play();
+            play.classList.replace("fa-play", "fa-pause");
+            img.classList.add("anime");
+        };
+        const pauseMusic = () => {
+            isplaying = false;
+            music.pause();
+            play.classList.replace("fa-pause", "fa-play");
+            img.classList.remove("anime");
+        };
+        play.addEventListener("click", () => {
+            // if (isplaying) {
+            //     pauseMusic();
+            // } else {
+            //     playMusic();
+            // }
+            isplaying ? pauseMusic() : playMusic();
+
+        });
+    </script>
+</body>
+
+</html>
